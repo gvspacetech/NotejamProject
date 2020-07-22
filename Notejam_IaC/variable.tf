@@ -169,25 +169,3 @@ variable "costcentre" {
 variable "live" {
   default = "yes"
 }
-
-
-
-
-
-/*
-//shield
- variable "ShieldName" {
-  default = "SheildProtectionFriendlyName"
-}
-
-variable "private_ip2" {
-  description = "Private IP address to associate with the instance in a VPC"
-  default     = "192.168.1.161"
-}
-
-
-variable "private_ip2_B" {
-  description = "Private IP address to associate with the instance in a VPC"
-  default     = "192.168.1.193"
-}
-*/
