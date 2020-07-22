@@ -349,7 +349,7 @@ resource "aws_security_group" "bastion" {
     from_port   = "22"
     to_port     = "22"
     protocol    = "TCP"
-    cidr_blocks = ["82.27.96.133/32"]
+    cidr_blocks = ["1.2.3.4/32"]
     //Note: only from my public ip
 }
 
@@ -380,13 +380,13 @@ resource "aws_security_group" "FrontEnd" {
         from_port = 80
         to_port = 80
         protocol = "TCP"
-        cidr_blocks = ["82.27.96.133/32"]
+        cidr_blocks = ["1.2.3.4/32"]
   }
   ingress {
         from_port = 443
         to_port = 443
         protocol = "TCP"
-        cidr_blocks = ["82.27.96.133/32"]
+        cidr_blocks = ["1.2.3.4/32"]
   }
    ingress {
       from_port = "22"
@@ -428,7 +428,6 @@ resource "aws_security_group" "BackEnd" {
         from_port = 443
         to_port = 443
         protocol = "TCP"
-        //cidr_blocks = ["82.27.96.133/32"]
         security_groups = ["${aws_security_group.FrontEnd.id}"]
   }
    ingress {
@@ -556,7 +555,6 @@ resource "aws_launch_template" "Notejam" {
 }
 
 resource "aws_autoscaling_group" "NotejamASG" {
-  #availability_zones = ["eu-west-2a"]
   availability_zones = ["eu-west-2a", "eu-west-2b"]
   desired_capacity   = 2
   max_size           = 4
